@@ -1,5 +1,6 @@
 {
   "name": "Discourse Topic Creator",
   "about_url": "#",
+  "component": true,
   "license_url": "https://github.com/discourse/discourse-topic-creator/blob/master/LICENSE"
 }
