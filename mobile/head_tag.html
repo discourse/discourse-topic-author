@@ -2,7 +2,7 @@
     <td>
       {{~#unless expandPinned}}
       <div class='pull-left'>
-        <a href="/users/{{topic.creator.username}}">{{avatar topic.creator imageSize="large"}}</a>
+        <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">{{avatar topic.creator imageSize="large"}}</a>
       </div>
       <div class='right'>
       {{else}}
