@@ -1,0 +1,26 @@
+.topic-list .topic-list-data {
+  .hidden-avatar {
+    + .right {
+      margin-left: 0;
+    }
+  }
+  .main-link a.title {
+    padding: 0.5em 0;
+    + .pull-right.with-username {
+      margin: 0;
+    }
+  }
+  .pull-right {
+    &.with-username {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  .topic-item-stats {
+    .category,
+    .discourse-tags {
+      margin-bottom: 0.5em;
+    }
+  }
+}

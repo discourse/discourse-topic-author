@@ -1,0 +1,5 @@
+show_author_username:
+  type: bool
+  default: false
+  description:
+    en: "Show author username instead profile avatar"

@@ -1,9 +1,16 @@
 .topic-list .posters {
-    width: 70px;
+  width: 70px;
 }
-#suggested-topics table td.author {
-    width: 70px !important;
-}
-#suggested-topics .topic-list thead {
+
+#suggested-topics .topic-list {
+  .topic-list-header {
     display: none;
+  }
+  .author.topic-list-data {
+    width: 70px;
+  }
+}
+
+.topic-list-item .author a {
+  color: var(--primary-medium);
 }
