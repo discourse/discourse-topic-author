@@ -2,9 +2,9 @@ show_author_username:
   type: bool
   default: false
   description:
-    en: "Display author username after topic column instead profile avatar"
+    en: "Display author username instead profile avatar"
 show_author_before_topic:
   type: bool
   default: false
   description:
-    en: "Display author avatar before topic column"
+    en: "Display author profile avatar before topic column"
