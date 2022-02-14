@@ -2,13 +2,11 @@
   <td class="topic-list-data">
     {{~raw-plugin-outlet name="topic-list-before-columns"}}
     
-    {{#if (theme-setting 'show_author_username')}}
-      <div class='hidden-avatar'></div>
-      {{else}}
+    {{#unless (theme-setting 'show_author_username')}}
       <div class='pull-left'>
         <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">{{avatar topic.creator imageSize="large"}}</a>
       </div>
-    {{/if}}
+    {{/unless}}
 
     <div class='right'>
       <div class='main-link'>
@@ -41,7 +39,7 @@
         {{discourse-tags topic mode="list"}}
  
         {{#if (theme-setting 'show_author_username')}}
-          <div class="pull-right with-username">
+          <div class="pull-right">
             <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
               {{topic.creator.username}}
             </a>
