@@ -8,11 +8,7 @@
   {{#unless (theme-setting 'show_author_username')}}
     <td class='author topic-list-data'>
       <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
-        {{#if (theme-setting 'show_author_username')}}
-          {{topic.creator.username}}
-          {{else}}
-          {{avatar topic.creator imageSize="45"}}
-        {{/if}} 
+        {{avatar topic.creator imageSize="45"}}
       </a>
     </td>
   {{/unless}}
@@ -65,11 +61,7 @@
   {{#if (theme-setting 'show_author_username')}}
     <td class='author topic-list-data'>
       <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
-        {{#if (theme-setting 'show_author_username')}}
-          {{topic.creator.username}}
-          {{else}}
-          {{avatar topic.creator imageSize="45"}}
-        {{/if}} 
+        {{topic.creator.username}}
       </a>
     </td>
   {{/if}}
