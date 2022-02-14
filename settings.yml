@@ -3,3 +3,8 @@ show_author_username:
   default: false
   description:
     en: "Show author username instead profile avatar"
+show_author_before_topic:
+  type: bool
+  default: false
+  description:
+    en: "Show author avatar before topic column on desktop"
