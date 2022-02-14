@@ -4,6 +4,20 @@
   {{raw "list/posters-column" posters=topic.participants}}
 {{/if}}
 
+{{#if (theme-setting 'show_author_before_topic')}}
+  {{#unless (theme-setting 'show_author_username')}}
+    <td class='author topic-list-data'>
+      <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
+        {{#if (theme-setting 'show_author_username')}}
+          {{topic.creator.username}}
+          {{else}}
+          {{avatar topic.creator imageSize="45"}}
+        {{/if}} 
+      </a>
+    </td>
+  {{/unless}}
+{{/if}}
+
 {{#if bulkSelectEnabled}}
   <td class="bulk-select topic-list-data">
     <input type="checkbox" class="bulk-select">
@@ -20,7 +34,7 @@
     {{~/if}}
     {{~raw-plugin-outlet name="topic-list-after-title"}}
     {{~#if showTopicPostBadges}}
-    {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
+    {{~raw "topic-post-badges" unreadPosts=topic.unread_posts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
     {{~/if}}
   </span>
   <div class="link-bottom-line">
@@ -37,15 +51,29 @@
   {{/if}}
 </td>
 
-<td class='author topic-list-data'>
-  <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
-    {{#if (theme-setting 'show_author_username')}}
-      {{topic.creator.username}}
-      {{else}}
-      {{avatar topic.creator imageSize="45"}}
-    {{/if}} 
-  </a>
-</td>
+{{#unless (theme-setting 'show_author_before_topic')}}  
+  <td class='author topic-list-data'>
+    <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
+      {{#if (theme-setting 'show_author_username')}}
+        {{topic.creator.username}}
+        {{else}}
+        {{avatar topic.creator imageSize="45"}}
+      {{/if}} 
+    </a>
+  </td>
+  {{else}}
+  {{#if (theme-setting 'show_author_username')}}
+    <td class='author topic-list-data'>
+      <a href="{{topic.creator.path}}" data-user-card="{{topic.creator.username}}">
+        {{#if (theme-setting 'show_author_username')}}
+          {{topic.creator.username}}
+          {{else}}
+          {{avatar topic.creator imageSize="45"}}
+        {{/if}} 
+      </a>
+    </td>
+  {{/if}}
+{{/unless}}
 
 {{raw "list/posts-count-column" topic=topic}}
 
@@ -84,11 +112,28 @@
     {{/if}}
   </th>
 {{/if}}
+
+{{#if (theme-setting 'show_author_before_topic')}}
+  {{#unless (theme-setting 'show_author_username')}}
+    {{#if showPosters}}
+      {{raw "topic-list-header-column" order='posters' forceName=(theme-i18n "author") }}
+    {{/if}}
+  {{/unless}}
+{{/if}}
+
 {{raw "topic-list-header-column" order='default' name=listTitle bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
 
-{{#if showPosters}}
-  {{raw "topic-list-header-column" order='posters' forceName=(theme-i18n "author") }}
-{{/if}}
+{{#unless (theme-setting 'show_author_before_topic')}}
+  {{#if showPosters}}
+    {{raw "topic-list-header-column" order='posters' forceName=(theme-i18n "author") }}
+  {{/if}}
+  {{else}}
+  {{#if (theme-setting 'show_author_username')}}
+    {{#if showPosters}}
+      {{raw "topic-list-header-column" order='posters' forceName=(theme-i18n "author") }}
+    {{/if}}
+  {{/if}}
+{{/unless}}
 
 {{raw "topic-list-header-column" sortable=sortable number='true' order='posts' name='replies'}}
 {{#if showLikes}}
