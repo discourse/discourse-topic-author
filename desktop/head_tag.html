@@ -100,10 +100,8 @@
   {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
 </script>
 
-<script
-  type="text/x-handlebars"
-  data-template-name="components/latest-topic-list-item"
->
+<script type="text/x-handlebars" data-template-name="components/latest-topic-list-item">
+  
   <div class='topic-poster'>
     {{#user-link user=topic.creator}}
     {{avatar topic.creator imageSize="large"}}
