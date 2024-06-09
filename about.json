@@ -1,6 +1,6 @@
 {
-  "name": "Discourse Topic Author",
+  "name": "Topic Author",
   "component": true,
-  "about_url": "https://github.com/discourse/discourse-topic-author",
+  "about_url": "https://meta.discourse.org/t/topic-author/111021",
   "license_url": "https://github.com/discourse/discourse-topic-author/blob/main/LICENSE"
 }
