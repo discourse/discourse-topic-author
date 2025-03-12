@@ -100,10 +100,8 @@
   {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
 </script>
 
-<script
-  type="text/x-handlebars"
-  data-template-name="components/latest-topic-list-item"
->
+<script type="text/x-handlebars" data-template-name="components/latest-topic-list-item">
+  
   <div class='topic-poster'>
     {{#user-link user=topic.creator}}
     {{avatar topic.creator imageSize="large"}}
@@ -124,6 +122,11 @@
     </div>
   </div>
   <div class='topic-stats'>
+    <PluginOutlet
+      @name="above-latest-topic-list-item-post-count"
+      @connectorTagName="div"
+      @outletArgs={{hash topic=this.topic}}
+    />
     {{raw "list/posts-count-column" topic=topic tagName="div"}}
     <div class="topic-last-activity">
       <a href="{{topic.lastPostUrl}}" title="{{topic.bumpedAtTitle}}">{{format-date topic.bumpedAt format="tiny" noTitle="true"}}</a>
